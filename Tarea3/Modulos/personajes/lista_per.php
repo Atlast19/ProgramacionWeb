@@ -31,7 +31,7 @@ $personajes = DBx::list("personajes");
             <td><?php echo htmlspecialchars($personaje->nivel_experiencia); ?></td>
             <td><?php echo htmlspecialchars($personaje->profecion); ?></td>
             <td>
-                <a href="<?=base_url("modelos/personajes/editar.php?codigo={$personaje->idx}"); ?>" class="btn btn-primary">Editar</a>
+                <a href="<?=base_url("modulos/personajes/editar.php?codigo={$personaje->idx}"); ?>" class="btn btn-primary">Editar</a>
             </td>
         </tr>
         <?php endforeach;?>

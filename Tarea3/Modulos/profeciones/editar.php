@@ -2,7 +2,6 @@
 include("../../libreria/principal.php");
 define("PAGINA_ACTUAL","profeciones");
 
-
 if($_POST){
     $profeciones = new Profeciones($_POST);
 
@@ -11,13 +10,12 @@ if($_POST){
     exit;
 }
 
-
 Plantilla::aplicar();
+
 $profeciones = new Profeciones();
 
 if(isset($_GET['codigo'])){
     $tmp = DBx::get("profeciones", $_GET['codigo']);
-
     if($tmp){
         $profeciones = $tmp;
     }

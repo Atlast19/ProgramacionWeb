@@ -22,7 +22,7 @@ $data = [
     'personajes' => count($personajes),
     'profeciones' => count($profeciones),
     'edad_promedio' => $eprom,
-    'nivel_experiencia_comm' => $excom
+    'nivel_experiencia_comun' => $excom,
 ];
 
 
@@ -51,7 +51,7 @@ foreach($profeciones as $profecion){
         <div class="card text-white bg-primary shadow">
           <div class="card-body">
             <h5 class="card-title">Personajes Registrados</h5>
-            <p class="card-text fs-4" id="totalPersonajes"><?= $data['personajes']; ?></p>
+            <p class="card-text fs-4" id="totalPersonajes"><?= $data['personajes'];?></p>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ foreach($profeciones as $profecion){
         <div class="card text-white bg-danger shadow">
           <div class="card-body">
             <h5 class="card-title">Nivel de Experiencia Común</h5>
-            <p class="card-text fs-4" id="experienciaComun"><?= number_format($data['nivel_experiencia_comun'], 2);?></p>
+            <p class="card-text fs-4" id="experienciaComun"><?= number_format($data['nivel_experiencia_comun'],2);?></p>
           </div>
         </div>
       </div>
@@ -116,10 +116,7 @@ foreach($profeciones as $profecion){
 
   <script>
     // Simulación de datos (puedes conectar con PHP/MySQL en producción)
-    document.getElementById('totalPersonajes').textContent = 25;
-    document.getElementById('totalProfesiones').textContent = 10;
-    document.getElementById('edadPromedio').textContent = '27 años';
-    document.getElementById('experienciaComun').textContent = 'Intermedio';
+
     document.getElementById('profesionMayorSalario').textContent = 'Doctora ($120,000)';
     document.getElementById('profesionMenorSalario').textContent = 'Cantante ($20,000)';
     document.getElementById('salarioPromedio').textContent = '$58,000';

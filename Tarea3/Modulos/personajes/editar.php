@@ -3,22 +3,24 @@ include("../../libreria/principal.php");
 define("PAGINA_ACTUAL","personajes");
 
 if($_POST){
-    $personaje = new Personajes($_POST);
+    $personajes = new Personajes($_POST);
 
-    DBx::save("personajes", $personaje);
-    header("Location" . base_url("modelos/personajes/lista.php"));
+    DBx::save("personajes", $personajes);
+    header("Location: " . base_url("modelos/personajes/lista.php"));
     exit;
 }
 
 Plantilla::aplicar();
 
-if(isset($_POST['codigo'])){
+$personajes = new Personajes();
+
+if(isset($_GET['codigo'])){
     $tmp = DBx::get("personajes", $_GET['codigo']);
     if($tmp){
-        $personaje = $tmp;
+        $personajes = $tmp;
     }
 }else{
-    $personaje = new Personajes();
+    $personajes = new Personajes();
 }
 ?>
 
@@ -27,32 +29,32 @@ if(isset($_POST['codigo'])){
 <form method="post" action="<?= $_SERVER['REQUEST_URI']?>">
 <div class="mb-3">
     <label for="codigo" class="form-label">Codigo</label>
-    <input type="text" class="form-control" id="idx" name="idx" value="<?= htmlspecialchars($personaje->idx);?>" readonly>
+    <input type="text" class="form-control" id="idx" name="idx" value="<?= htmlspecialchars($personajes->idx);?>" readonly>
 </div>
 
 <div class="mb-3">
     <label for="identificacion" class="form-label">Identificacion</label>
-    <input type="text" class="form-control" id="identificacion" name="identificacion" value="<?= htmlspecialchars($personaje->identificacion);?>">
+    <input type="number" class="form-control" id="identificacion" name="identificacion" value="<?= htmlspecialchars($personajes->identificacion);?>">
 </div>
 
 <div class="mb-3">
     <label for="nombre" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" value="<?= htmlspecialchars($personaje->nombre);?>">
+    <input type="text" class="form-control" id="nombre" name="nombre" value="<?= htmlspecialchars($personajes->nombre);?>">
 </div>
 
 <div class="mb-3">
     <label for="apellido" class="form-label">Apellido</label>
-    <input type="text" class="form-control" id="apellido" name="apellido" value="<?= htmlspecialchars($personaje->apellido);?>">
+    <input type="text" class="form-control" id="apellido" name="apellido" value="<?= htmlspecialchars($personajes->apellido);?>">
 </div>
 
 <div class="mb-3">
     <label for="fecha_nacimiento" class="form-label">Fehca Nacimiento</label>
-    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value="<?= htmlspecialchars($personaje->fecha_nacimiento);?>">
+    <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value="<?= htmlspecialchars($personajes->fecha_nacimiento);?>">
 </div>
 
 <div class="mb-3">
     <label for="foto" class="form-label">Foto</label>
-    <input type="text" class="form-control" id="foto" name="foto" value="<?= htmlspecialchars($personaje->foto);?>">
+    <input type="text" class="form-control" id="foto" name="foto" value="<?= htmlspecialchars($personajes->foto);?>">
 </div>
 
 <div class="mb-3">
@@ -62,7 +64,7 @@ if(isset($_POST['codigo'])){
         <?php
         $profeciones = DBx::list("profeciones");
         foreach($profeciones as $prof): ?>
-        <option value="<?= htmlspecialchars($prof->idx);?>" <?=$personaje->profecion == $prof->idx ? 'selected': '';?>>
+        <option value="<?= htmlspecialchars($prof->idx);?>" <?=$personajes->profecion == $prof->idx ? 'selected': '';?>>
             <?=htmlspecialchars($prof->nombre);?>
         </option>
         <?php endforeach;?>
@@ -71,7 +73,7 @@ if(isset($_POST['codigo'])){
 
 <div class="mb-3">
     <label for="nivel_experiencia" class="form-label">Nivel de Experiencia</label>
-    <input type="number" class="form-control" id="nivel_experiencia" name="nivel_experiencia" value="<?= htmlspecialchars($personaje->nivel_experiencia);?>">
+    <input type="number" class="form-control" id="nivel_experiencia" name="nivel_experiencia" value="<?= htmlspecialchars($personajes->nivel_experiencia);?>">
 </div>
 
 <button type="submit" class="btn btn-primary">Guardar</button>
