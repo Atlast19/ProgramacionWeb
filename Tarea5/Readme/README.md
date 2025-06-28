@@ -31,7 +31,7 @@ Mostrar el funcionamiento e integración de distintas APIs utilizando tecnologí
 
 1. **Clona o descarga el repositorio desde GitHub**
 
-   https://github.com/tu-usuario/10-APIs-Diferences.git
+   https://github.com/Atlast19/ProgramacionWeb.git
 
 2. **En la terminal de VS Code, ejecuta:**
 
