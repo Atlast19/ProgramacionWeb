@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Accidente</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Registro de Accidentes</div>
+        <ul class="navbar-nav">
+            <li><a href="#" id="logout">Cerrar Sesión</a></li>
+            <li><a href="home.html">Volver al Mapa</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h2>Registrar Nuevo Accidente</h2>
+        <form id="accidentForm">
+            <div class="form-group">
+                <label for="accidentType">Tipo de Accidente:</label>
+                <select id="accidentType" required>
+                    <option value="">Seleccione un tipo</option>
+                    <option value="colision">Colisión vehicular</option>
+                    <option value="atropello">Atropello</option>
+                    <option value="caida">Caída</option>
+                    <option value="incendio">Incendio</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="accidentDate">Fecha y Hora:</label>
+                <input type="datetime-local" id="accidentDate" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="location">Ubicación:</label>
+                <input type="text" id="location" placeholder="Ej: Av. Principal #123" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Descripción:</label>
+                <textarea id="description" rows="4" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="severity">Gravedad:</label>
+                <select id="severity" required>
+                    <option value="">Seleccione gravedad</option>
+                    <option value="leve">Leve</option>
+                    <option value="moderado">Moderado</option>
+                    <option value="grave">Grave</option>
+                    <option value="fatal">Fatal</option>
+                </select>
+            </div>
+            
+            <button type="submit">Registrar Accidente</button>
+        </form>
+        <p id="form-message" class="success-message"></p>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
